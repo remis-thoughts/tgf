@@ -9,5 +9,7 @@ Gem::Specification.new do |s|
   s.test_files  = ['test/test_tgf.rb']
   s.homepage    = ''
   s.license     = 'Apache-2.0'
+
+  s.add_development_dependency 'rake'
 end
 

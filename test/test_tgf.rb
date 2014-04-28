@@ -18,6 +18,22 @@ class TGFTest < Minitest::Test
     assert_nil edges[0].label
   end
 
+  def test_custom_separator
+    nodes, edges = TGF.parse '1;2;#;1 2;', ';'
+    assert_equal 2, nodes.size
+    assert_equal 1, edges.size
+
+    assert_equal '1', nodes[0].id
+    assert_nil nodes[0].label
+
+    assert_equal '2', nodes[1].id
+    assert_nil nodes[1].label
+
+    assert_equal '1', edges[0].from
+    assert_equal '2', edges[0].to
+    assert_nil edges[0].label
+  end
+
   def test_node_label
     nodes, edges = TGF.parse "1 hat\n"
     assert_equal 1, nodes.size
