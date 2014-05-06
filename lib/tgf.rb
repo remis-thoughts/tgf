@@ -40,4 +40,27 @@ module TGF
 
     return nodes, edges
   end
+
+  ##
+  # Prints a set of +TGF::Node+s and +TGF::Edge+s to +file+.
+  # +file+ can be any object that responds to +<<+; the graph
+  # is passed line by line to +<<+, and the return value is
+  # used as the object for the next call. The value +<<+ returns
+  # in the final invocation is returned by +write+.
+
+  def self.write file, nodes = [], edges = [], sep = $/
+    nodes.each do |node|
+      label = node.label.nil? ? '' : " #{node.label}"
+      file <<= "#{node.id}#{label}#{sep}"
+    end
+    return file if edges.empty?
+
+    file <<= "##{sep}"
+    edges.each do |edge|
+      label = edge.label.nil? ? '' : " #{edge.label}"
+      file <<= "#{edge.from} #{edge.to}#{label}#{sep}"
+    end
+
+    file    
+  end
 end

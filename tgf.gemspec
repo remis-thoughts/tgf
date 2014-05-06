@@ -1,8 +1,8 @@
 Gem::Specification.new do |s|
   s.name        = 'tgf'
-  s.version     = '1.0.0'
+  s.version     = '1.1.0'
   s.summary     = 'Trivial Graph Format (TGF)'
-  s.description = 'A gem for parsing Trivial Graph Format files or strings'
+  s.description = 'A gem for parsing & writing Trivial Graph Format files or strings'
   s.author      = 'Remis'
   s.email       = 'remis.thoughts@gmail.com'
   s.files       = ['lib/tgf.rb', '.gemtest', 'Rakefile']
